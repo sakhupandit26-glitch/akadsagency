@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK ADS AGENCY — Join on Telegram</title>
+<meta name="description" content="Join AK Ads Agency on Telegram for Meta Ads strategy, creative breakdowns, and campaign insights.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1972019743486537');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1972019743486537&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+  :root{
+    --bg:#081E1D;
+    --bg-deep:#050F0F;
+    --paper:#FBF7EF;
+    --coral:#FF6B4A;
+    --coral-soft:#FFA07A;
+    --matrix:#3DDC97;
+    --line: rgba(251,247,239,0.14);
+    --muted: rgba(251,247,239,0.68);
+    --font-display: 'Archivo Black', 'Arial Black', 'Helvetica Neue', sans-serif;
+    --font-body: 'Work Sans', -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#081E1D;
+      --bg-deep:#050F0F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#081E1D;
+    --bg-deep:#050F0F;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--paper);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  #matrix-canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    opacity:0.5;
+    pointer-events:none;
+  }
+
+  /* ambient lighting, layered above the rain */
+  .glow{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(90px);
+    pointer-events:none;
+    z-index:1;
+    opacity:0.5;
+  }
+  .glow-a{
+    width:560px; height:560px;
+    top:-220px; left:-160px;
+    background:radial-gradient(circle at 30% 30%, rgba(255,107,74,0.5), transparent 70%);
+    animation:drift-a 16s ease-in-out infinite alternate;
+  }
+  .glow-b{
+    width:640px; height:640px;
+    bottom:-260px; right:-200px;
+    background:radial-gradient(circle at 60% 60%, rgba(38,166,154,0.42), transparent 70%);
+    animation:drift-b 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift-a{
+    from{ transform:translate(0,0) scale(1); }
+    to{ transform:translate(40px,30px) scale(1.08); }
+  }
+  @keyframes drift-b{
+    from{ transform:translate(0,0) scale(1); }
+    to{ transform:translate(-30px,-40px) scale(1.06); }
+  }
+
+  /* scrim so text stays readable over the rain */
+  .scrim{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:radial-gradient(circle at 50% 42%, rgba(8,30,29,0.35) 0%, rgba(8,30,29,0.82) 62%, rgba(5,15,15,0.92) 100%);
+  }
+
+  header, main, footer{ position:relative; z-index:2; }
+
+  header{
+    padding:28px 28px 0;
+    text-align:center;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--muted);
+    opacity:0;
+    animation:rise .7s ease forwards;
+  }
+  .brand span{color:var(--coral);}
+
+  main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 24px 70px;
+  }
+  .hero{
+    max-width:640px;
+    text-align:center;
+  }
+  .kicker{
+    font-weight:600;
+    font-size:13.5px;
+    letter-spacing:0.02em;
+    color:var(--coral-soft);
+    margin:0 0 18px;
+    opacity:0;
+    animation:rise .7s ease forwards;
+    animation-delay:.08s;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(34px, 6vw, 58px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    margin:0 0 22px;
+    background:linear-gradient(180deg, #FFFFFF 0%, var(--paper) 55%, rgba(251,247,239,0.75) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    opacity:0;
+    animation:rise .8s ease forwards;
+    animation-delay:.16s;
+  }
+  .lede{
+    font-size:17px;
+    color:var(--muted);
+    max-width:46ch;
+    margin:0 auto 38px;
+    opacity:0;
+    animation:rise .8s ease forwards;
+    animation-delay:.26s;
+  }
+
+  .btn-wrap{
+    display:inline-block;
+    opacity:0;
+    animation:rise .8s ease forwards;
+    animation-delay:.36s;
+  }
+  .btn-primary{
+    position:relative;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:17px;
+    text-decoration:none;
+    background:linear-gradient(135deg, var(--coral) 0%, #FF8A5B 100%);
+    color:#20100A;
+    padding:18px 36px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:
+      0 8px 20px rgba(255,107,74,0.28),
+      0 2px 0 rgba(255,255,255,0.25) inset;
+    transition:transform .25s ease, box-shadow .25s ease;
+    isolation:isolate;
+  }
+  .btn-primary::before{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:16px;
+    background:radial-gradient(circle, rgba(255,107,74,0.5), transparent 70%);
+    opacity:0;
+    transition:opacity .3s ease;
+    z-index:-1;
+    animation:pulse-ring 2.6s ease-in-out infinite;
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:
+      0 14px 30px rgba(255,107,74,0.4),
+      0 2px 0 rgba(255,255,255,0.3) inset;
+  }
+  .btn-primary:hover::before{ opacity:1; }
+  .btn-primary svg{flex-shrink:0;}
+
+  @keyframes pulse-ring{
+    0%, 100%{ opacity:0.15; }
+    50%{ opacity:0.4; }
+  }
+
+  .points{
+    margin:44px 0 0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    opacity:0;
+    animation:rise .8s ease forwards;
+    animation-delay:.46s;
+  }
+  .points li{
+    font-family:'JetBrains Mono', var(--font-body);
+    font-size:12.5px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 16px;
+    background:rgba(251,247,239,0.04);
+    backdrop-filter:blur(6px);
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    background:rgba(5,15,15,0.4);
+  }
+  footer a{color:inherit; text-decoration:underline;}
+
+  :focus-visible{
+    outline:2px solid var(--coral);
+    outline-offset:3px;
+  }
+
+  @media (max-width:520px){
+    header{padding:22px 20px 0;}
+    main{padding:30px 20px 50px;}
+    .points{gap:10px;}
+    .points li{font-size:11.5px; padding:7px 13px;}
+    .glow-a{width:380px; height:380px;}
+    .glow-b{width:420px; height:420px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .glow-a, .glow-b{ animation:none; }
+    .brand, .kicker, h1, .lede, .btn-wrap, .points{ animation:none; opacity:1; }
+    .btn-primary{ transition:none; }
+    .btn-primary::before{ animation:none; }
+    #matrix-canvas{ display:none; }
+  }
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1972019743486537&ev=PageView&noscript=1"
+/></noscript>
+
+<canvas id="matrix-canvas" aria-hidden="true"></canvas>
+<div class="glow glow-a" aria-hidden="true"></div>
+<div class="glow glow-b" aria-hidden="true"></div>
+<div class="scrim" aria-hidden="true"></div>
+
+<header>
+  <div class="brand">AK <span>Ads</span> Agency</div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="kicker">Free Telegram channel</p>
+    <h1>Meta Ads strategy, straight from live campaigns.</h1>
+    <p class="lede">Creative breakdowns, targeting decisions, and budget calls from real Meta Ads accounts — posted as they happen, no fluff.</p>
+    <div class="btn-wrap">
+      <a class="btn-primary" href="https://t.me/+NClEt-SWyDMyZDJl" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21.5 4.5 2.7 11.8c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.9 5.7c.2.6.4.8.8.8.4 0 .6-.2.8-.5l2.3-2.2 4.7 3.5c.8.5 1.4.2 1.6-.8l3-14c.3-1.2-.4-1.7-1.4-1.3Z" fill="currentColor"/></svg>
+        Join on Telegram
+      </a>
+    </div>
+    <ul class="points">
+      <li>Meta Ads only</li>
+      <li>Real campaign data</li>
+      <li>Free to join</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  AK Ads Agency — Telegram channel
+</footer>
+
+<script>
+(function(){
+  var canvas = document.getElementById('matrix-canvas');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!canvas || reduceMotion) return;
+
+  var ctx = canvas.getContext('2d');
+  var chars = 'アカウントメタ広告01インサイトCTRROASCPC0123456789';
+  chars = chars.split('');
+  var fontSize = 15;
+  var columns, drops;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    columns = Math.floor(window.innerWidth / fontSize);
+    drops = new Array(columns).fill(0).map(function(){
+      return Math.floor(Math.random() * -40);
+    });
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw(){
+    ctx.fillStyle = 'rgba(8, 30, 29, 0.16)';
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+    ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+
+    for (var i = 0; i < columns; i++){
+      var text = chars[Math.floor(Math.random() * chars.length)];
+      var x = i * fontSize;
+      var y = drops[i] * fontSize;
+
+      var isHead = Math.random() > 0.94;
+      ctx.fillStyle = isHead ? 'rgba(255, 138, 91, 0.9)' : 'rgba(61, 220, 151, 0.55)';
+      ctx.fillText(text, x, y);
+
+      if (y > window.innerHeight && Math.random() > 0.975){
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  var lastTime = 0;
+  var interval = 55;
+  function loop(time){
+    if (time - lastTime > interval){
+      draw();
+      lastTime = time;
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+</html>
